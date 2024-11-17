@@ -58,3 +58,71 @@ class Pediatrics extends HealthProfessional {
         System.out.println("------------------------------");
     }
 }
+// "4 Appointment Class";
+class Appointment {
+
+    String name;
+    String phone;
+    String time;
+    HealthProfessional doctor;
+
+    public Appointment() {
+
+    }
+
+    public Appointment(String name, String phone, String time, HealthProfessional doctor) {
+        this.name = name;
+        this.phone = phone;
+        this.time = time;
+        this.doctor = doctor;
+    }
+
+    public void printDetails() {
+        System.out.println("Patient Name: " + name);
+        System.out.println("Patient Phone: " + phone);
+        System.out.println("Time: " + time);
+        System.out.print("Doctor: ");
+        doctor.printDetails();
+    }
+}
+
+// "AssignmentOne";
+public class AssignmentOne {
+    // "Create Appointment List";
+    private static ArrayList<Appointment> appointments = new ArrayList<>();
+
+    public static void main(String[] args) {
+
+        // "3 Create 2GeneralPractitioner 3Pediatrics";
+        System.out.println("=================part3===============");
+        // GeneralPractitioner;
+        GeneralPractitioner gp1 = new GeneralPractitioner(1, "Dr. Anna Taylor", "Family medicine specialist");
+        GeneralPractitioner gp2 = new GeneralPractitioner(2, "Dr. Sarah Lee",
+                "Primary care provider for adults and children");
+        GeneralPractitioner gp3 = new GeneralPractitioner(3, "Dr. Michael Brown",
+                "General health and wellness advisor");
+        // Pediatrics;
+        Pediatrics ped1 = new Pediatrics(4, "Dr. John Smith", "Expert in heart surgery");
+        Pediatrics ped2 = new Pediatrics(5, "Dr. Emily Davis", "Child health and development expert");
+        // "Print Details"
+        gp1.printDetails();
+        gp2.printDetails();
+        gp3.printDetails();
+        ped1.printDetails();
+        ped2.printDetails();
+
+        System.out.println("=================part5===============");
+        // "Create Appointment 2GeneralPractitioner 2Pediatrics";
+        createAppointment("Frank Green", "2224441234", "2024-11-14 11:00", gp1);
+        createAppointment("Grace Black", "1112223456", "2024-11-14 13:30", gp2);
+        createAppointment("Hannah Blue", "7778889999", "2024-11-14 16:00", ped1);
+        createAppointment("Ian Scott", "6665558888", "2024-11-15 08:30", ped2);
+        // "Output the reserved list";
+        printExistingAppointments();
+        // "Output the reserved list";
+        cancelBooking("6665558888");
+        // "Appointment list updated after cancellation";
+        printExistingAppointments();
+        // "Cancel non-existent";
+        cancelBooking("1234567890");
+    }
