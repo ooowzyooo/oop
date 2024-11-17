@@ -21,3 +21,40 @@ class HealthProfessional {
         System.out.println("Description: " + description);
     }
 }
+// "2 Create GeneralPractitioner Class";
+class GeneralPractitioner extends HealthProfessional {
+    public GeneralPractitioner() {
+    }
+
+    public GeneralPractitioner(int id, String name, String description) {
+        super(id, name, description);
+    }
+
+    @Override
+    public void printDetails() {
+        super.printDetails();
+        System.out.println("Specialty: GeneralPractitioner");
+        System.out.println("------------------------------");
+    }
+}
+
+// "2 Create Pediatrics Class";
+class Pediatrics extends HealthProfessional {
+
+    final String specialty = "Pediatrics";
+
+    public Pediatrics() {
+
+    }
+
+    public Pediatrics(int id, String name, String description) {
+        super(id, name, description);
+    }
+
+    @Override
+    public void printDetails() {
+        super.printDetails();
+        System.out.println("Specialty: " + this.specialty);
+        System.out.println("------------------------------");
+    }
+}
