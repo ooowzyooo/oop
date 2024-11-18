@@ -126,3 +126,41 @@ public class AssignmentOne {
         // "Cancel non-existent";
         cancelBooking("1234567890");
     }
+ // "createAppointment";
+    public static void createAppointment(String name, String phone, String time, HealthProfessional doctor) {
+        Appointment appointment = new Appointment(name, phone, time, doctor);
+        appointments.add(appointment);
+        System.out.println("============appointment success!============");
+
+    }
+
+    // "printExistingAppointments";
+    public static void printExistingAppointments() {
+        if (appointments.isEmpty()) {
+            System.out.println("empty");
+        } else {
+            for (Appointment appointment : appointments) {
+                appointment.printDetails();
+                System.out.println("------------------------------");
+            }
+        }
+    }
+
+    // "cancelBooking";
+    public static void cancelBooking(String phone) {
+        int index = -1;
+        for (int i = 0; i < appointments.size(); i++) {
+            if (appointments.get(i).phone == phone) {
+                index = i;
+                break;
+            }
+        }
+        if (index > -1) {
+            appointments.remove(index);
+            System.out.println("===================Cancel Success: " + phone);
+
+        } else {
+            System.out.println("===================Cancel Error: " + phone);
+        }
+    }
+}
